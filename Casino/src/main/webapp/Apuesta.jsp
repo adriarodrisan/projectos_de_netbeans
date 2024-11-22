@@ -20,6 +20,7 @@
             aposta realitzada:
             Apuesta 1:<input type="number" name="aposta1" />
             Apuesta 2:<input type="number" name="aposta2" /><br/>
+            
             Data del partit: <input type="datetime-local" name="datetime" id="datetime" /><br/>
             Aposta econòmica: <input type="number" name="edat" /><br/>
             <input type="submit" name="submit" value="Enviar Apuesta"/>
