@@ -25,6 +25,10 @@ public class Apuesta {
         this.apuesta = apuesta;
         this.equipo = equipo;
     }
+
+    Apuesta(String nombre, String ID, String equipo, String fecha_partido, String apuesta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public int getID() {
         return ID;
     }

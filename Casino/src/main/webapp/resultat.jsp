@@ -17,15 +17,15 @@
          <h2>Lista de Apuestas</h2> 
         <ul> 
             <% 
-            List<Apuesta> apuesta = (ArrayList<Apuesta>) request.getAttribute("apuestas"); 
+            List<Apuesta> listaapuestas = (ArrayList<Apuesta>) request.getAttribute("apuestas"); 
             //List<String> usuarios = (List<String>) getServletContext.getAttribute("usuarios"); 
-            if (apuesta != null) { 
-                for (Apuesta apuestas : apuesta) { 
-                    out.println("<li>" + apuestas.getID() + " "  
-                    + apuestas.getNombre() + " " 
-                    + apuestas.getFecha_partido() + " "  
-                    + apuestas.getApuesta() + " " 
-                    + apuestas.getEquipo() +"</li>"); 
+            if (listaapuestas != null) { 
+                for (Apuesta apuesta : listaapuestas) { 
+                    out.println("<li>" + apuesta.getID() + " "  
+                    + apuesta.getNombre() + " " 
+                    + apuesta.getFecha_partido() + " "  
+                    + apuesta.getApuesta() + " " 
+                    + apuesta.getEquipo() +"</li>"); 
                 } 
             } 
             %> 

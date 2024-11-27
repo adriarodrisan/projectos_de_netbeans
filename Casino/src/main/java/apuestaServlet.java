@@ -4,6 +4,7 @@
  */
 
 import com.mvm.daw.casino.model.Apuesta;
+import com.mvm.daw.casino.model.ApuestaService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/apuestaServlet"})
 public class apuestaServlet extends HttpServlet {
-
+    private ApuestaService apuestaService;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -52,6 +53,7 @@ public class apuestaServlet extends HttpServlet {
         // Inicializar la lista de usuarios en el contexto de la aplicación 
         List<Apuesta> listaApuestas = new ArrayList<>();
         getServletContext().setAttribute("listaApuestas", listaApuestas);
+        ApuestaService apuestaService = new ApuestaService();
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -85,6 +87,7 @@ public class apuestaServlet extends HttpServlet {
          if ("Enviar Apuesta".equals(accion)) {
             // recuperar la lista que está guardada en el contexto
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
+            apuestaService.addApuesta(listaApuestas,request);
             // redirigimos al jsp
             request.setAttribute("apuestas", listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
