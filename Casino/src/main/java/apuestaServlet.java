@@ -3,8 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import com.mvm.daw.casino.model.Apuesta;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +47,12 @@ public class apuestaServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
+    @Override
+    public void init() throws ServletException {
+        // Inicializar la lista de usuarios en el contexto de la aplicación 
+        List<Apuesta> listaApuestas = new ArrayList<>();
+        getServletContext().setAttribute("listaApuestas", listaApuestas);
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -70,7 +79,16 @@ public class apuestaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String accion = request.getParameter("submit");
+
+         if ("Enviar Apuesta".equals(accion)) {
+            // recuperar la lista que está guardada en el contexto
+            List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
+            // redirigimos al jsp
+            request.setAttribute("apuestas", listaApuestas);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
     }
 
     /**
@@ -78,9 +96,6 @@ public class apuestaServlet extends HttpServlet {
      *
      * @return a String containing servlet description
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
     }// </editor-fold>
 
 }
