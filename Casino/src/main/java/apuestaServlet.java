@@ -52,6 +52,8 @@ public class apuestaServlet extends HttpServlet {
     public void init() throws ServletException {
         // Inicializar la lista de usuarios en el contexto de la aplicación 
         List<Apuesta> listaApuestas = new ArrayList<>();
+        int ContadorID=0;
+        getServletContext().setAttribute("ContadorID", ContadorID);
         getServletContext().setAttribute("listaApuestas", listaApuestas);
         apuestaService = new ApuestaService();
     }
@@ -90,6 +92,7 @@ public class apuestaServlet extends HttpServlet {
             apuestaService.addApuesta(listaApuestas,request);
             // redirigimos al jsp
             request.setAttribute("apuestas", listaApuestas);
+            request.setAttribute("coapuestas", listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
     }

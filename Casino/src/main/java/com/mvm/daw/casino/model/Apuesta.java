@@ -1,8 +1,7 @@
 package com.mvm.daw.casino.model;
 
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.util.UUID;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,22 +13,17 @@ import java.util.Date;
  * @author isard
  */
 public class Apuesta {
-    String ID;
     String nombre;
     String fecha_partido;
     String apuesta;
     String equipo;
     String resultat;
-    public Apuesta(String ID,String nombre, String fecha_partido, String equipo, String resultat, String apuesta) {
-        this.ID = ID;
+    public Apuesta(String nombre, String fecha_partido, String equipo, String resultat, String apuesta, String resultat1) {
         this.nombre = nombre;
         this.fecha_partido = fecha_partido;
         this.apuesta = apuesta;
         this.equipo = equipo;
         this.resultat = resultat;
-    }
-    public String getID() {
-        return ID;
     }
     public String getNombre() {
         return nombre;
@@ -42,9 +36,6 @@ public class Apuesta {
     }
     public String getEquipo() {
         return equipo;
-    }
-    public void setID(String ID) {
-        this.ID = ID;
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;

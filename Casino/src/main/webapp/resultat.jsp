@@ -21,15 +21,16 @@
             //List<String> usuarios = (List<String>) getServletContext.getAttribute("usuarios"); 
             if (listaapuestas != null) { 
                 for (Apuesta apuesta : listaapuestas) { 
-                    out.println("<li>" + apuesta.getID() + " "  
-                    + apuesta.getNombre() + " " 
-                    + apuesta.getFecha_partido() + " "  
-                    + apuesta.getApuesta() + " " 
-                    + apuesta.getResultat()+ " "
+                    out.println("<li>" + apuesta.getID() + "<br/> "  
+                    + apuesta.getNombre() + "<br/>" 
+                    + apuesta.getFecha_partido() + "<br/>"  
+                    + apuesta.getApuesta() + "<br/>" 
+                    + apuesta.getResultat()+ "<br/>"
                     + apuesta.getEquipo() +"</li>"); 
                 } 
             } 
             %> 
         </ul> 
+    <a href="Apuesta.jsp">Agregar otra Apuesta</a>
     </body>
 </html>
