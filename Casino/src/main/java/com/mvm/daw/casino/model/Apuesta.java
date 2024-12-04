@@ -18,12 +18,18 @@ public class Apuesta {
     String apuesta;
     String equipo;
     String resultat;
-    public Apuesta(String nombre, String fecha_partido, String equipo, String resultat, String apuesta, String resultat1) {
+    int ID;
+    public Apuesta(String nombre, int ID, String fecha_partido, String equipo, String resultat, String apuesta) {
+        this.ID= ID;
         this.nombre = nombre;
         this.fecha_partido = fecha_partido;
         this.apuesta = apuesta;
         this.equipo = equipo;
         this.resultat = resultat;
+    }
+
+    public int getID() {
+        return ID;
     }
     public String getNombre() {
         return nombre;
@@ -49,11 +55,12 @@ public class Apuesta {
     public void setEquipo(String equipo) {
         this.equipo = equipo;
     }
-
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     public void setResultat(String resultat) {
         this.resultat = resultat;
     }
-
     public String getResultat() {
         return resultat;
     }

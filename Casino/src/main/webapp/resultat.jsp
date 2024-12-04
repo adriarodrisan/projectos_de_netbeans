@@ -21,11 +21,11 @@
             //List<String> usuarios = (List<String>) getServletContext.getAttribute("usuarios"); 
             if (listaapuestas != null) { 
                 for (Apuesta apuesta : listaapuestas) { 
-                    out.println("<li>" + apuesta.getID() + "<br/> "  
-                    + apuesta.getNombre() + "<br/>" 
-                    + apuesta.getFecha_partido() + "<br/>"  
-                    + apuesta.getApuesta() + "<br/>" 
-                    + apuesta.getResultat()+ "<br/>"
+                    out.println("<li>" + apuesta.getID() + " "  
+                    + apuesta.getNombre() + " " 
+                    + apuesta.getFecha_partido() + " "  
+                    + apuesta.getApuesta() + " " 
+                    + apuesta.getResultat()+ " "
                     + apuesta.getEquipo() +"</li>"); 
                 } 
             } 

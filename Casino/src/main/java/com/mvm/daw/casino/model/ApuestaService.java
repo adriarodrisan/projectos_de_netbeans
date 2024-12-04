@@ -16,11 +16,11 @@ public class ApuestaService {
     public ApuestaService() {
     }
 
-    public void addApuesta(List<Apuesta> listaApuestas, HttpServletRequest request) {
+    public void addApuesta(List<Apuesta> listaApuestas, int ContadorID, HttpServletRequest request) {
 
         // recuperar los datos del formulario
         String nombre = request.getParameter("nombre");
-        String ID = request.getParameter("ID");
+        int ID = ContadorID;
         String fecha_partido = request.getParameter("fecha_partido");
         String apuesta = request.getParameter("apuesta");
         String equipo= request.getParameter("equipo");
