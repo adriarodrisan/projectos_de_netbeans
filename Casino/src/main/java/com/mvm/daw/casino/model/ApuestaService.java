@@ -21,11 +21,12 @@ public class ApuestaService {
         // recuperar los datos del formulario
         String nombre = request.getParameter("nombre");
         String ID = request.getParameter("ID");
-        String equipo = request.getParameter("equipo");
         String fecha_partido = request.getParameter("fecha_partido");
         String apuesta = request.getParameter("apuesta");
+        String equipo= request.getParameter("equipo");
+        String resultat = request.getParameter("Resultat");
         //String usuario = "Nombre: " + nombre + ", Correo: " + correu + ", Cargo: " + carrec;
-        Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta);
+        Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta, resultat);
         // añadir los datos del usuario (del formulario) en la lista
         listaApuestas.add(apuestas);
     }

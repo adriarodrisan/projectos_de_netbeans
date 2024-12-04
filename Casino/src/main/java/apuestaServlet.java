@@ -53,7 +53,7 @@ public class apuestaServlet extends HttpServlet {
         // Inicializar la lista de usuarios en el contexto de la aplicación 
         List<Apuesta> listaApuestas = new ArrayList<>();
         getServletContext().setAttribute("listaApuestas", listaApuestas);
-        ApuestaService apuestaService = new ApuestaService();
+        apuestaService = new ApuestaService();
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

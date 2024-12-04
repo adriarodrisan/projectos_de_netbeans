@@ -1,6 +1,7 @@
 package com.mvm.daw.casino.model;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /*
@@ -13,50 +14,56 @@ import java.util.Date;
  * @author isard
  */
 public class Apuesta {
-    int ID;
+    String ID;
     String nombre;
-    Date fecha_partido;
-    int apuesta;
+    String fecha_partido;
+    String apuesta;
     String equipo;
-    public Apuesta(int ID, String nombre, Date fecha_partido, int apuesta, String equipo) {
+    String resultat;
+    public Apuesta(String ID,String nombre, String fecha_partido, String equipo, String resultat, String apuesta) {
         this.ID = ID;
         this.nombre = nombre;
         this.fecha_partido = fecha_partido;
         this.apuesta = apuesta;
         this.equipo = equipo;
+        this.resultat = resultat;
     }
-
-    Apuesta(String nombre, String ID, String equipo, String fecha_partido, String apuesta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public int getID() {
+    public String getID() {
         return ID;
     }
     public String getNombre() {
         return nombre;
     }
-    public Date getFecha_partido() {
+    public String getFecha_partido() {
         return fecha_partido;
     }
-    public int getApuesta() {
+    public String getApuesta() {
         return apuesta;
     }
     public String getEquipo() {
         return equipo;
     }
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public void setFecha_partido(Date fecha_partido) {
+    public void setFecha_partido(String fecha_partido) {
         this.fecha_partido = fecha_partido;
     }
-    public void setApuesta(int apuesta) {
+    public void setApuesta(String apuesta) {
         this.apuesta = apuesta;
     }
     public void setEquipo(String equipo) {
         this.equipo = equipo;
+    }
+
+    public void setResultat(String resultat) {
+        this.resultat = resultat;
+    }
+
+    public String getResultat() {
+        return resultat;
     }
 }

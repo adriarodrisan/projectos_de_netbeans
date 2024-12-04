@@ -13,12 +13,13 @@
     </head>
     <body>
         <form action="apuestaServlet" method="post">
-            ID apuesta: <input type="number" name="ID"/><br/>
+            ID apuesta: <input type="text" name="ID"/><br/>
             Nom d'Usuari: <input type="text" name="nombre" /><br/>
-            enfrontament: <input type="radio" id="opcio1" name="equipo" value="equipo1"> Barca
-            <input type="radio" id="opcio2" name="equipo" value="equipo2"> Real Madrid<br/>
-            Data del partit: <input type="date" name="fecha_partido" id="datetime" /><br/>
-            Aposta econòmica: <input type="number" name="apuesta" /><br/>
+            enfrontament: <input type="radio" id="opcio1" name="equipo" value="Barça"> Barça
+            <input type="radio" id="opcio2" name="equipo" value="Real Madrid"> Real Madrid<br/>
+            Resultat Enfrentament: <input type="text" name="Resultat" required/><br/>
+            Data del partit: <input type="text" name="fecha_partido" id="datetime" required /><br/>
+            Aposta econòmica: <input type="text" name="apuesta" required/><br/>
             <input type="submit" name="submit" value="Enviar Apuesta"/>
         </form>
     </body>

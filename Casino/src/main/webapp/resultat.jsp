@@ -25,6 +25,7 @@
                     + apuesta.getNombre() + " " 
                     + apuesta.getFecha_partido() + " "  
                     + apuesta.getApuesta() + " " 
+                    + apuesta.getResultat()+ " "
                     + apuesta.getEquipo() +"</li>"); 
                 } 
             } 
