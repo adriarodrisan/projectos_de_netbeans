@@ -4,6 +4,7 @@
  */
 package com.mvm.daw.casino.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,5 +30,16 @@ public class ApuestaService {
         Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta, resultat);
         // añadir los datos del usuario (del formulario) en la lista
         listaApuestas.add(apuestas);
+    }
+    public List<Apuesta> Borrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
+        List<Apuesta> listaFiltrada = new ArrayList();
+        String nombre = request.getParameter("nombre");
+        for (Apuesta apuesta: listaApuestas){
+                if(apuesta.getID().equals(nombre)){
+                    listaApuestas.remove(apuesta);
+                    break;
+                }
+        }
+        return listaFiltrada;
     }
 }

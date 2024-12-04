@@ -26,7 +26,11 @@
                     + apuesta.getFecha_partido() + " "  
                     + apuesta.getApuesta() + " " 
                     + apuesta.getResultat()+ " "
-                    + apuesta.getEquipo() +"</li>"); 
+                    + apuesta.getEquipo() +"<form action='apuestaServlet' method='POST'>"
+                                        + "<input type='hidden' name='nombre' value='"+ apuesta.getNombre() +"'/>"
+                                        +"<input type='submit' name='submit' value='Borrar'/>"
+                                        +"</form> "
+                                        +"</li>"); 
                 } 
             } 
             %> 
