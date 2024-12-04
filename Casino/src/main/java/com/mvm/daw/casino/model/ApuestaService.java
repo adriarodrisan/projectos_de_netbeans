@@ -33,9 +33,9 @@ public class ApuestaService {
     }
     public List<Apuesta> Borrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
         List<Apuesta> listaFiltrada = new ArrayList();
-        String nombre = request.getParameter("nombre");
+        int ID = request.getParameter(ID);
         for (Apuesta apuesta: listaApuestas){
-                if(apuesta.getID().equals(nombre)){
+                if(apuesta.getID()==ID){
                     listaApuestas.remove(apuesta);
                     break;
                 }
