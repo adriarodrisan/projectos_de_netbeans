@@ -14,8 +14,14 @@
     <body>
         <form action="apuestaServlet" method="post">
             Nom d'Usuari: <input type="text" name="nombre" /><br/>
-            enfrontament: <input type="radio" id="opcio1" name="equipo" value="Barca"> Barça
-            <input type="radio" id="opcio2" name="equipo" value="Real Madrid"> Real Madrid<br/>
+            Enfrontament: 
+            <select name="equipo">
+                <option value="Barca-R.Madrid">Barca-R.Madrid</option>
+                <option value="Majorca-Betis">Majorca-Betis</option>
+                <option value="Leganes-Alaves">Leganes-Alaves</option>
+                <option value="Las Palmas-Getafe">Las Palmas-Getafe</option>
+            </select>
+            <br/>
             Resultat Enfrentament: <input type="text" name="Resultat" required/><br/>
             Data del partit: <input type="text" name="fecha_partido" id="datetime" required /><br/>
             Aposta econòmica: <input type="text" name="apuesta" required/><br/>
