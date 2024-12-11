@@ -98,17 +98,10 @@ public class apuestaServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
     }else if("Borrar".equals(accion)){
-            String nombre = request.getParameter("nombre");
+            String ID = request.getParameter("ID");
             List<Apuesta> listaFiltrada = new ArrayList();
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
             listaFiltrada = apuestaService.Borrar(listaApuestas,request);
-            /*
-            for (Usuari usuario: listaUsuarios){
-                if(usuario.getNombre().equals(nombre)){
-                    listaUsuarios.remove(usuario);
-                    break;
-                }
-            }*/
             request.setAttribute("Apuestas",  (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuesta"));
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);

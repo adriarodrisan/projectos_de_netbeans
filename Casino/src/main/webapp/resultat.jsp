@@ -27,7 +27,7 @@
                     + apuesta.getApuesta() + " " 
                     + apuesta.getResultat()+ " "
                     + apuesta.getEquipo() +"<form action='apuestaServlet' method='POST'>"
-                                        + "<input type='hidden' name='nombre' value='"+ apuesta.getID() +"'/>"
+                                        + "<input type='hidden' name='ID' value='"+ apuesta.getID() +"'/>"
                                         +"<input type='submit' name='submit' value='Borrar'/>"
                                         +"</form> "
                                         +"</li>"); 
