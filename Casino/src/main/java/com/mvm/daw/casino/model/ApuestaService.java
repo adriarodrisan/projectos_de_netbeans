@@ -4,6 +4,8 @@
  */
 package com.mvm.daw.casino.model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +24,12 @@ public class ApuestaService {
         // recuperar los datos del formulario
         String nombre = request.getParameter("nombre");
         int ID = ContadorID;
-        String fecha_partido = request.getParameter("fecha_partido");
+        String fecha_partido_String = request.getParameter("fecha_partido");
         String apuesta = request.getParameter("apuesta");
         String equipo = request.getParameter("equipo");
         String resultat = request.getParameter("Resultat");
+        DateTimeFormatter formater= DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate fecha_partido= LocalDate.parse(fecha_partido_String, formater);
         //String apuestas = "Apuesta: " + nombre + ", ID: " + id + ", Cargo: " + carrec;
         Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta, resultat);
         // añadir los datos del usuario (del formulario) en la lista

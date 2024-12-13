@@ -111,6 +111,8 @@ public class apuestaServlet extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    }else if("Modificar".equals(accion)){
+        
     }
 
 }
