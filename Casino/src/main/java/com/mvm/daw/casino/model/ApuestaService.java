@@ -24,22 +24,21 @@ public class ApuestaService {
         int ID = ContadorID;
         String fecha_partido = request.getParameter("fecha_partido");
         String apuesta = request.getParameter("apuesta");
-        String equipo= request.getParameter("equipo");
+        String equipo = request.getParameter("equipo");
         String resultat = request.getParameter("Resultat");
-        //String usuario = "Nombre: " + nombre + ", Correo: " + correu + ", Cargo: " + carrec;
+        //String apuestas = "Apuesta: " + nombre + ", ID: " + id + ", Cargo: " + carrec;
         Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta, resultat);
         // añadir los datos del usuario (del formulario) en la lista
         listaApuestas.add(apuestas);
     }
-    public List<Apuesta> Borrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
-        List<Apuesta> listaFiltrada = new ArrayList();
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        for (Apuesta apuesta: listaApuestas){
-                if(apuesta.getID()==ID){
-                    listaApuestas.remove(apuesta);
-                    break;
-                }
+
+    public void Borrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
+        int ID = Integer.parseInt(request.getParameter("ID")); 
+        for (Apuesta apuesta : listaApuestas) {
+            if (apuesta.getID() == ID) {
+                listaApuestas.remove(apuesta);
+                break;
+            }
         }
-        return listaFiltrada;
     }
 }

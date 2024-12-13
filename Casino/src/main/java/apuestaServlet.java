@@ -99,10 +99,10 @@ public class apuestaServlet extends HttpServlet {
             dispatcher.forward(request, response);
     }else if("Borrar".equals(accion)){
             String ID = request.getParameter("ID");
-            List<Apuesta> listaFiltrada = new ArrayList();
+            //List<Apuesta> listaFiltrada = new ArrayList();
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
-            listaFiltrada = apuestaService.Borrar(listaApuestas,request);
-            request.setAttribute("Apuestas",  (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuesta"));
+            apuestaService.Borrar(listaApuestas, request);
+            request.setAttribute("apuestas",  listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
 

@@ -17,7 +17,7 @@
             Enfrontament: 
             <select name="equipo">
                 <option value="Barca-R.Madrid">Barca-R.Madrid</option>
-                <option value="Majorca-Betis">Majorca-Betis</option>
+                <option value="Majorca-Betis">Mallorca-Betis</option>
                 <option value="Leganes-Alaves">Leganes-Alaves</option>
                 <option value="Las Palmas-Getafe">Las Palmas-Getafe</option>
             </select>
