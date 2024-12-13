@@ -24,7 +24,7 @@
                     out.println("<li>" + apuesta.getID() + " "  
                     + apuesta.getNombre() + " " 
                     + apuesta.getFecha_partido() + " "  
-                    + apuesta.getApuesta() + " " 
+                    + apuesta.getApuesta() + "€ " 
                     + apuesta.getResultat()+ " "
                     + apuesta.getEquipo() +"<form action='apuestaServlet' method='POST'>"
                                         + "<input type='hidden' name='ID' value='"+ apuesta.getID() +"'/>"

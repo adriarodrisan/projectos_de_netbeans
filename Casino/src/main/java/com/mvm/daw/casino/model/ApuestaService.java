@@ -25,9 +25,9 @@ public class ApuestaService {
         String nombre = request.getParameter("nombre");
         int ID = ContadorID;
         String fecha_partido_String = request.getParameter("fecha_partido");
-        String apuesta = request.getParameter("apuesta");
-        String equipo = request.getParameter("equipo");
         String resultat = request.getParameter("Resultat");
+        String equipo = request.getParameter("equipo");
+        double apuesta = Double.parseDouble(request.getParameter("apuesta"));
         DateTimeFormatter formater= DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fecha_partido= LocalDate.parse(fecha_partido_String, formater);
         //String apuestas = "Apuesta: " + nombre + ", ID: " + id + ", Cargo: " + carrec;
@@ -45,4 +45,11 @@ public class ApuestaService {
             }
         }
     }
-}
+    public void Modificar(List<Apuesta> listaApuestas, HttpServletRequest request) {
+        int ID = Integer.parseInt(request.getParameter("ID")); 
+        for (Apuesta apuesta : listaApuestas) {
+            if (apuesta.getID() == ID) {
+                
+            }
+    }
+}}

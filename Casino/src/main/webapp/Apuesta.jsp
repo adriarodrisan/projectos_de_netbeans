@@ -24,7 +24,7 @@
             <br/>
             Resultat Enfrentament: <input type="text" name="Resultat" required/><br/>
             Data del partit: <input type="text" name="fecha_partido"required />dd-MM-yyyy<br/>
-            Aposta econòmica: <input type="text" name="apuesta" required/><br/>
+            Aposta econòmica: <input type="number" name="apuesta" step="0.01" required/><span>€</span><br/>
             <input type="submit" name="submit" value="Enviar Apuesta"/>
         </form>
     </body>

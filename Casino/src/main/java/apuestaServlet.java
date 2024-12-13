@@ -112,7 +112,11 @@ public class apuestaServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     }else if("Modificar".equals(accion)){
-        
+        List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
+        apuestaService.Modificar(listaApuestas, request);
+        request.setAttribute("apuestas",  listaApuestas);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
     }
 
 }

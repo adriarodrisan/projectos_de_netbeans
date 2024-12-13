@@ -14,12 +14,12 @@ import java.time.LocalDate;
 public class Apuesta {
     String nombre;
     LocalDate fecha_partido;
-    String apuesta;
+    double apuesta;
     String equipo;
     String resultat;
     int ID;
 
-    public Apuesta(String nombre, int ID, String apuesta, LocalDate fecha_partido, String equipo, String resultat) {
+    public Apuesta(String nombre, int ID, String resultat, LocalDate fecha_partido, double apuesta, String equipo) {
         this.nombre = nombre;
         this.fecha_partido = fecha_partido;
         this.apuesta = apuesta;
@@ -27,6 +27,7 @@ public class Apuesta {
         this.resultat = resultat;
         this.ID = ID;
     }
+
     public int getID() {
         return ID;
     }
@@ -37,8 +38,8 @@ public class Apuesta {
     public LocalDate getFecha_partido() {
         return fecha_partido;
     }
-    
-    public String getApuesta() {
+
+    public double getApuesta() {
         return apuesta;
     }
     public String getEquipo() {
@@ -50,7 +51,7 @@ public class Apuesta {
     public void setFecha_partido(LocalDate fecha_partido) {
         this.fecha_partido = fecha_partido;
     }
-    public void setApuesta(String apuesta) {
+    public void setApuesta(double apuesta) {
         this.apuesta = apuesta;
     }
     public void setEquipo(String equipo) {
