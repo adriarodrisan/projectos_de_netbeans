@@ -86,7 +86,7 @@ public class apuestaServlet extends HttpServlet {
         //processRequest(request, response);
         String accion = request.getParameter("submit");
 
-         if ("Enviar Apuesta".equals(accion)) {
+        if ("Enviar Apuesta".equals(accion)) {
             // recuperar la lista que está guardada en el contexto
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
             int ContadorID= (int) getServletContext().getAttribute("ContadorID");
@@ -97,7 +97,7 @@ public class apuestaServlet extends HttpServlet {
             request.setAttribute("apuestas", listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
-    }else if("Borrar".equals(accion)){
+        }else if("Borrar".equals(accion)){
             String ID = request.getParameter("ID");
             //List<Apuesta> listaFiltrada = new ArrayList();
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
@@ -116,6 +116,13 @@ public class apuestaServlet extends HttpServlet {
         apuestaService.Modificar(listaApuestas, request);
         request.setAttribute("apuestas",  listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
+    }
+     else if("Detalles".equals(accion)){
+        List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
+        apuestaService.Mostrar(listaApuestas, request);
+        request.setAttribute("apuestas",  listaApuestas);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Detallesapuesta.jsp");
             dispatcher.forward(request, response);
     }
 
