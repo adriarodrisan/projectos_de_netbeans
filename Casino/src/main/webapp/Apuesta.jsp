@@ -23,7 +23,7 @@
             </select>
             <br/>
             Resultat Enfrentament: <input type="text" name="Resultat" required/><br/>
-            Data del partit: <input type="text" name="fecha_partido"required />dd-MM-yyyy<br/>
+            Data del partit: <input type="text" name="fecha_partido" placeholder="dd-MM-yyyy"required /><br/>
             Aposta econòmica: <input type="number" name="apuesta" step="0.01" required/><span>€</span><br/>
             <input type="submit" name="submit" value="Enviar Apuesta"/>
         </form>

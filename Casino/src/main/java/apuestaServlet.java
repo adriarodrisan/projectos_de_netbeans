@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -85,6 +86,7 @@ public class apuestaServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String accion = request.getParameter("submit");
+        
 
         if ("Enviar Apuesta".equals(accion)) {
             // recuperar la lista que está guardada en el contexto
@@ -115,7 +117,7 @@ public class apuestaServlet extends HttpServlet {
         List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
         apuestaService.Modificar(listaApuestas, request);
         request.setAttribute("apuestas",  listaApuestas);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("EditarApuesta.jsp");
             dispatcher.forward(request, response);
     }
      else if("Detalles".equals(accion)){
@@ -125,6 +127,11 @@ public class apuestaServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("Detallesapuesta.jsp");
             dispatcher.forward(request, response);
     }
-
+        else if ("Volver".equals(accion)) {
+            List<Apuesta> listaApuestas = (List<Apuesta>) getServletContext().getAttribute("listaApuestas");
+            request.setAttribute("apuestas", listaApuestas);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
+        }
 }
 }

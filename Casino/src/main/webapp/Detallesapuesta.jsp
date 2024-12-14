@@ -11,6 +11,7 @@
     <title>Detalles</title>
 </head>
 <body>
+    <form action="apuestaServlet" method="post">
     <h1>Detalles de la Apuesta</h1>
     <% if (apuesta != null) { %>
         <!-- Mostrar los detalles de una apuesta específica -->
@@ -35,6 +36,7 @@
     <% } else { %>
         <p>No hay apuestas disponibles para mostrar.</p>
     <% } %>
-    <a href="resultat.jsp">Volver</a>
+    <input type="submit" name="submit" value="Volver"/>
+    </form>
 </body>
 </html>
