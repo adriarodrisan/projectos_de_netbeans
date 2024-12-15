@@ -140,7 +140,7 @@ public class apuestaServlet extends HttpServlet {
     List<Apuesta> listaApuestas = (List<Apuesta>) getServletContext().getAttribute("listaApuestas");
     List<Apuesta> listaFiltrada = apuestaService.filtrarPorUsuario(listaApuestas, request);
     request.setAttribute("apuestas", listaFiltrada);
-    RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+    RequestDispatcher dispatcher = request.getRequestDispatcher("apuestafiltrada.jsp");
     dispatcher.forward(request, response);
 }
 }}
