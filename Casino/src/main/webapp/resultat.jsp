@@ -38,5 +38,10 @@
             %> 
         </ul> 
     <a href="Apuesta.jsp">Agregar otra Apuesta</a>
+    <form action="apuestaServlet" method="POST">
+            <input type="text" name="nombre"/>
+            <input type="submit" name="submit" value="Filtra por usuario"/>
+        
+        </form>
     </body>
 </html>

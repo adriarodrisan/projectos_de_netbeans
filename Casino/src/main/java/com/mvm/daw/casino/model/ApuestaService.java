@@ -5,6 +5,7 @@
 package com.mvm.daw.casino.model;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 /**
@@ -51,7 +52,24 @@ public class ApuestaService {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
             if (apuesta.getID() == ID) {
+                apuesta.setNombre(request.getParameter("usuario"));
+                apuesta.setEquipo(request.getParameter("equipo"));
+                apuesta.setResultat(request.getParameter("Resultat"));
+                String fechaPartido = request.getParameter("fecha_partido");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                apuesta.setFecha_partido(LocalDate.parse(fechaPartido, formatter));
+                double apuestaEconomica = Double.parseDouble(request.getParameter("apuesta"));
+                apuesta.setApuesta(apuestaEconomica);
             }
         }
+    }public List<Apuesta> filtrarPorUsuario(List<Apuesta> listaApuestas, HttpServletRequest request) {
+        List<Apuesta> listaFiltrada = new ArrayList();
+        String nombre = request.getParameter("nombre");
+        for (Apuesta apuesta : listaApuestas) {
+            if (apuesta.getNombre().equals(nombre)) {
+                listaFiltrada.add(apuesta); // qué hago ??
+            }
+        }
+        return listaFiltrada;
     }
 }

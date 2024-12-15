@@ -16,7 +16,7 @@
         <form action="apuestaServlet" method="post">
             <input type="hidden" name="id" value="${apuesta.id}">
             Usuario:
-                <input type="text" id="usuario" name="usuario" value="${apuesta.usuario}"><br>
+                <input type="text" id="usuario" name="usuario" value="${apuesta.Nombre}"><br>
             Enfrontament:
             <select id="equipo" name="equipo" required>
                 <option value="Barca-R.Madrid" ${apuesta.equipo == 'Barca-R.Madrid' ? 'selected' : ''}>Barca-R.Madrid</option>
@@ -26,7 +26,7 @@
             </select><br/>
             <br/>
             Resultat Enfrontament:
-            <input type="text" id="Resultat" name="Resultat" value="${apuesta.resultado}" required/><br/>
+            <input type="text" id="Resultat" name="Resultat" value="${apuesta.resultat}" required/><br/>
             Data del partit:
             <input type="text" id="fecha_partido" name="fecha_partido" value="${apuesta.fechaPartido}" placeholder="dd-MM-yyyy" required/><br/>
             Aposta econòmica:
