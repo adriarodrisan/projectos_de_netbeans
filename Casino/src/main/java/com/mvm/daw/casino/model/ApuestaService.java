@@ -63,13 +63,16 @@ public class ApuestaService {
             }
         }
     }public List<Apuesta> filtrarPorUsuario(List<Apuesta> listaApuestas, HttpServletRequest request) {
-        List<Apuesta> listaFiltrada = new ArrayList();
-        String nombre = request.getParameter("nombre");
-        for (Apuesta apuesta : listaApuestas) {
-            if (apuesta.getNombre().equals(nombre)) {
-                listaFiltrada.add(apuesta); // qué hago ??
-            }
-        }
-        return listaFiltrada;
+    // Obtener el nombre desde el parámetro
+    String nombre = request.getParameter("nombre");
+    if (nombre == null || nombre.trim().isEmpty()) {
+        return new ArrayList<>(); // Si no hay nombre, retornar lista vacía
     }
-}
+    List<Apuesta> listaFiltrada = new ArrayList<>();
+    for (Apuesta apuesta : listaApuestas) {
+        if (nombre.equals(apuesta.getNombre())) {
+            listaFiltrada.add(apuesta);
+        }
+    }
+    return listaFiltrada;
+}}

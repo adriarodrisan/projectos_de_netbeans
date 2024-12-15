@@ -14,34 +14,33 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <h2>Lista de Apuestas</h2> 
+        <h2>Lista de Apuestas</h2> 
         <ul> 
-            <% 
-            List<Apuesta> listaapuestas = (ArrayList<Apuesta>) request.getAttribute("apuestas"); 
-            //List<String> usuarios = (List<String>) getServletContext.getAttribute("usuarios"); 
-            if (listaapuestas != null) { 
-                for (Apuesta apuesta : listaapuestas) { 
-                    out.println("<li>" + apuesta.getID() + " "  
-                    + "["+apuesta.getNombre() + "]-" 
-                    + "["+apuesta.getFecha_partido() + "]-"  
-                    + apuesta.getApuesta() + "€ " 
-                    + apuesta.getResultat()+ " "
-                    + apuesta.getEquipo() +"<form action='apuestaServlet' method='POST'>"
-                                        + "<input type='hidden' name='ID' value='"+ apuesta.getID() +"'/>"
-                                        +"<input type='submit' name='submit' value='Borrar'/>"
-                                        +"<input type='submit' name='submit' value='Detalles'/>"
-                                        +"<input type='submit' name='submit' value='Modificar'/>"
-                                        +"</form> "
-                                        +"</li>"); 
-                } 
-            } 
+            <%
+                List<Apuesta> listaapuestas = (ArrayList<Apuesta>) request.getAttribute("apuestas");
+                //List<String> usuarios = (List<String>) getServletContext.getAttribute("usuarios"); 
+                if (listaapuestas != null) {
+                    for (Apuesta apuesta : listaapuestas) {
+                        out.println("<li>" + apuesta.getID() + " "
+                                + "[" + apuesta.getNombre() + "]-"
+                                + "[" + apuesta.getFecha_partido() + "]-"
+                                + apuesta.getApuesta() + "€ "
+                                + apuesta.getResultat() + " "
+                                + apuesta.getEquipo() + "<form action='apuestaServlet' method='POST'>"
+                                + "<input type='hidden' name='ID' value='" + apuesta.getID() + "'/>"
+                                + "<input type='submit' name='submit' value='Borrar'/>"
+                                + "<input type='submit' name='submit' value='Detalles'/>"
+                                + "<input type='submit' name='submit' value='Modificar'/>"
+                                + "</form> "
+                                + "</li>");
+                    }
+                }
             %> 
         </ul> 
-    <a href="Apuesta.jsp">Agregar otra Apuesta</a>
-    <form action="apuestaServlet" method="POST">
+        <a href="Apuesta.jsp">Agregar otra Apuesta</a>
+        <form action="apuestaServlet" method="POST">
             <input type="text" name="nombre"/>
-            <input type="submit" name="submit" value="Filtra por usuario"/>
-        
+            <input type="submit" name="submit" value="FiltraPorUsuario"/>
         </form>
     </body>
 </html>

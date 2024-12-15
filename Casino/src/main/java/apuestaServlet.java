@@ -135,13 +135,12 @@ public class apuestaServlet extends HttpServlet {
             request.setAttribute("apuestas", listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
-} else if ("Filtra por usuario".equals(accion)) {
-            List<Apuesta> listaApuestas = (List<Apuesta>) getServletContext().getAttribute("listaApuestas");
-            List<Apuesta> listaFiltrada = new ArrayList<>();
-            // enviar datos a Service (model) para obtener la lista filtrada
-            apuestaService.filtrarPorUsuario(listaApuestas, request);
-            // redirigimos al jsp
-            request.setAttribute("apuestas", listaFiltrada);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
-            dispatcher.forward(request, response);
-}}}
+} else if ("FiltrarPorUsuario".equals(request.getParameter("accion"))) {
+    // Obtener la lista de apuestas del contexto de la aplicación
+    List<Apuesta> listaApuestas = (List<Apuesta>) getServletContext().getAttribute("listaApuestas");
+    List<Apuesta> listaFiltrada = apuestaService.filtrarPorUsuario(listaApuestas, request);
+    request.setAttribute("apuestas", listaFiltrada);
+    RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+    dispatcher.forward(request, response);
+}
+}}
