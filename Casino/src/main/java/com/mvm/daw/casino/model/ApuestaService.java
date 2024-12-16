@@ -67,4 +67,14 @@ public class ApuestaService {
                 break;
             }
         }
-}}
+} public List<Apuesta> filtrarPorUsuario(List<Apuesta> listaApuestas, String nombreFiltro) {
+        List<Apuesta> listaFiltrada = new ArrayList<>();
+        for (Apuesta apuesta : listaApuestas) {
+            if (apuesta.getNombre() != null && apuesta.getNombre().contains(nombreFiltro)) {
+                listaFiltrada.add(apuesta);
+            }
+        }
+        return listaFiltrada;
+    }
+       
+}
