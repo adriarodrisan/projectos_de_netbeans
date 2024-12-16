@@ -4,35 +4,57 @@
     Author     : isard
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.mvm.daw.casino.model.Apuesta" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Modifica tu apuesta</h1>
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Apuesta</title>
+</head>
+<body>
+    <h1>Modificar Apuesta</h1>
+
+    <% 
+        Apuesta apuesta = (Apuesta) request.getAttribute("apuesta");
+        if (apuesta == null) {
+    %>
+        <p>No se encontró la apuesta para editar.</p>
+        <a href="resultat.jsp">Volver al inicio</a>
+    <% 
+        } else {
+    %>
+
+        <!-- Formulario para editar la apuesta -->
         <form action="apuestaServlet" method="post">
-            <input type="hidden" name="id" value="${apuesta.id}">
-            Usuario:
-                <input type="text" id="usuario" name="usuario" value="${apuesta.Nombre}"><br>
-            Enfrontament:
-            <select id="equipo" name="equipo" required>
-                <option value="Barca-R.Madrid" ${apuesta.equipo == 'Barca-R.Madrid' ? 'selected' : ''}>Barca-R.Madrid</option>
-                <option value="Majorca-Betis" ${apuesta.equipo == 'Majorca-Betis' ? 'selected' : ''}>Mallorca-Betis</option>
-                <option value="Leganes-Alaves" ${apuesta.equipo == 'Leganes-Alaves' ? 'selected' : ''}>Leganes-Alaves</option>
-                <option value="Las Palmas-Getafe" ${apuesta.equipo == 'Las Palmas-Getafe' ? 'selected' : ''}>Las Palmas-Getafe</option>
-            </select><br/>
-            <br/>
-            Resultat Enfrontament:
-            <input type="text" id="Resultat" name="Resultat" value="${apuesta.resultat}" required/><br/>
-            Data del partit:
-            <input type="text" id="fecha_partido" name="fecha_partido" value="${apuesta.fechaPartido}" placeholder="dd-MM-yyyy" required/><br/>
-            Aposta econòmica:
-            <input type="number" id="apuesta" name="apuesta" value="${apuesta.apuesta}" step="0.01" required/><span> €</span><br/>
-            <input type="submit" name="submit" value="Actualizar Apuesta"/>
-</form>
-        
-    </body>
+            <input type="hidden" name="ID" value="<%= apuesta.getID() %>"/>
+
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="nombre" value="<%= apuesta.getNombre() %>" required/><br/>
+
+            <label for="equipo">Resultado:</label>
+            <input type="text" id="equipo" name="equipo" value="<%= apuesta.getEquipo() %>" required/><br/>
+
+            <label for="Resultat">Equipo:</label>
+            <input type="text" id="Resultat" name="Resultat" value="<%= apuesta.getResultat() %>" required/><br/>
+
+            <label for="fecha_partido">Fecha del Partido (dd-MM-yyyy):</label>
+            <input type="text" id="fecha_partido" name="fecha_partido" 
+                   value="<%= apuesta.getFecha_partido() != null ? apuesta.getFecha_partido().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) : "" %>" required/><br/>
+
+            <label for="apuesta">Apuesta Económica (€):</label>
+            <input type="number" step="0.01" id="apuesta" name="apuesta" 
+                   value="<%= apuesta.getApuesta() %>" required/><br/>
+
+             <button type="submit" name="submit" value="Modificar">Guardar Cambios</button>
+        </form>
+
+    <% 
+        } 
+    %>
+
+</body>
 </html>

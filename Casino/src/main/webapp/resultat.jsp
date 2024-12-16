@@ -30,7 +30,7 @@
                                 + "<input type='hidden' name='ID' value='" + apuesta.getID() + "'/>"
                                 + "<input type='submit' name='submit' value='Borrar'/>"
                                 + "<input type='submit' name='submit' value='Detalles'/>"
-                                + "<input type='submit' name='submit' value='Modificar'/>"
+                                + "<input type='submit' name='submit' value='Editar'/>"
                                 + "</form> "
                                 + "</li>");
                     }

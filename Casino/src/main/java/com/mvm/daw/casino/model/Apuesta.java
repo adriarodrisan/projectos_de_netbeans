@@ -65,5 +65,5 @@ public class Apuesta {
     }
     public String getResultat() {
         return resultat;
-    }
+    }  
 }

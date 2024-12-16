@@ -39,7 +39,7 @@ public class ApuestaService {
             }
         }
     }
-    public void Mostrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
+       public void Mostrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
             if (apuesta.getID() == ID) {
@@ -52,27 +52,19 @@ public class ApuestaService {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
             if (apuesta.getID() == ID) {
-                apuesta.setNombre(request.getParameter("usuario"));
-                apuesta.setEquipo(request.getParameter("equipo"));
-                apuesta.setResultat(request.getParameter("Resultat"));
-                String fechaPartido = request.getParameter("fecha_partido");
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                apuesta.setFecha_partido(LocalDate.parse(fechaPartido, formatter));
+                String nombre = request.getParameter("nombre");
+                String equipo = request.getParameter("equipo");
+                String resultat = request.getParameter("Resultat");
+                String fechaPartidoString = request.getParameter("fecha_partido");
                 double apuestaEconomica = Double.parseDouble(request.getParameter("apuesta"));
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate fechaPartido = LocalDate.parse(fechaPartidoString, formatter);
+                apuesta.setNombre(nombre);
+                apuesta.setEquipo(equipo);
+                apuesta.setResultat(resultat);
+                apuesta.setFecha_partido(fechaPartido);
                 apuesta.setApuesta(apuestaEconomica);
+                break;
             }
         }
-    }public List<Apuesta> filtrarPorUsuario(List<Apuesta> listaApuestas, HttpServletRequest request) {
-    // Obtener el nombre desde el parámetro
-    String nombre = request.getParameter("nombre");
-    if (nombre == null || nombre.trim().isEmpty()) {
-        return new ArrayList<>(); // Si no hay nombre, retornar lista vacía
-    }
-    List<Apuesta> listaFiltrada = new ArrayList<>();
-    for (Apuesta apuesta : listaApuestas) {
-        if (nombre.equals(apuesta.getNombre())) {
-            listaFiltrada.add(apuesta);
-        }
-    }
-    return listaFiltrada;
 }}
