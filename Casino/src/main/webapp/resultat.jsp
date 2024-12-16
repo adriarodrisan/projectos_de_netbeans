@@ -22,11 +22,11 @@
                 if (listaapuestas != null) {
                     for (Apuesta apuesta : listaapuestas) {
                         out.println("<li>" + apuesta.getID() + " "
-                                + "[" + apuesta.getNombre() + "]-"
-                                + "[" + apuesta.getFecha_partido() + "]-"
-                                + apuesta.getApuesta() + "€ "
-                                + apuesta.getResultat() + " "
-                                + apuesta.getEquipo() + "<form action='apuestaServlet' method='POST'>"
+                                + "Nombre de usuario:"+"[" + apuesta.getNombre() + "]-" 
+                                + "Fecha del partido:"+"["  + apuesta.getFecha_partido() + "]-"
+                                + "Cantidad de apuesta:"+"["  +apuesta.getApuesta() + "€]- "
+                                +"Enfrentamiento:"+"["  +apuesta.getResultat() + "]-"
+                                + "Resultado:"+"[" +apuesta.getEquipo() + "]"+"<form action='apuestaServlet' method='POST'>"
                                 + "<input type='hidden' name='ID' value='" + apuesta.getID() + "'/>"
                                 + "<input type='submit' name='submit' value='Borrar'/>"
                                 + "<input type='submit' name='submit' value='Detalles'/>"
