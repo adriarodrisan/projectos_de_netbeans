@@ -90,14 +90,12 @@ public class apuestaServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String accion = request.getParameter("submit");
-
         if ("Enviar Apuesta".equals(accion)) {
             // recuperar la lista que está guardada en el contexto
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
             int ContadorID = (int) getServletContext().getAttribute("ContadorID");
             apuestaService.addApuesta(listaApuestas, ContadorID, request);
             getServletContext().setAttribute("ContadorID", ContadorID + 1);
-
             // redirigimos al jsp
             request.setAttribute("apuestas", listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
@@ -110,7 +108,6 @@ public class apuestaServlet extends HttpServlet {
             request.setAttribute("apuestas", listaApuestas);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
-
             /**
              * Returns a short description of the servlet.
              *
