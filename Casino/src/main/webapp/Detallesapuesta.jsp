@@ -17,8 +17,8 @@
         <!-- Mostrar los detalles de una apuesta específica -->
         <p>ID: <%= apuesta.getID() %></p>
         <p>Usuario: <%= apuesta.getNombre() %></p>
-        <p>Equipo: <%= apuesta.getEquipo() %></p>
-        <p>Resultado: <%= apuesta.getResultat() %></p>
+        <p>Resultat: <%= apuesta.getEquipo() %></p>
+        <p>Equipo: <%= apuesta.getResultat() %></p>
         <p>Fecha del Partido: <%= apuesta.getFecha_partido() %></p>
         <p>Apuesta Económica: <%= apuesta.getApuesta() %> €</p>
     <% } else if (listaApuestas != null) { %>
