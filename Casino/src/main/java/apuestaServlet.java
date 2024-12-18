@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 import com.mvm.daw.casino.model.Apuesta;
 import com.mvm.daw.casino.model.ApuestaService;
 import java.io.IOException;
@@ -16,16 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author isard
  */
 @WebServlet(urlPatterns = {"/apuestaServlet"})
 public class apuestaServlet extends HttpServlet {
-
     private ApuestaService apuestaService;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -51,7 +47,6 @@ public class apuestaServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
     @Override
     public void init() throws ServletException {
         // Inicializar la lista de usuarios en el contexto de la aplicación 
