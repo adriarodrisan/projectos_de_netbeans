@@ -19,6 +19,7 @@
         <p>Usuario: <%= apuesta.getNombre() %></p>
         <p>Resultat: <%= apuesta.getEquipo() %></p>
         <p>Equipo: <%= apuesta.getResultat() %></p>
+        <p>Liga: <%= apuesta.getLiga() %></p>
         <p>Fecha del Partido: <%= apuesta.getFecha_partido() %></p>
         <p>Apuesta Económica: <%= apuesta.getApuesta() %> €</p>
     <% } else if (listaApuestas != null) { %>

@@ -52,11 +52,13 @@ public class apuestaServlet extends HttpServlet {
         // Inicializar la lista de usuarios en el contexto de la aplicación 
         List<Apuesta> listaApuestas = new ArrayList<>();
         int ContadorID = 0;
+        boolean ganar = false;
+        getServletContext().setAttribute("ganar", ganar);
         getServletContext().setAttribute("ContadorID", ContadorID);
         getServletContext().setAttribute("listaApuestas", listaApuestas);
         apuestaService = new ApuestaService();
+        
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -88,7 +90,8 @@ public class apuestaServlet extends HttpServlet {
             // recuperar la lista que está guardada en el contexto
             List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
             int ContadorID = (int) getServletContext().getAttribute("ContadorID");
-            apuestaService.addApuesta(listaApuestas, ContadorID, request);
+            boolean ganar = (boolean) getServletContext().getAttribute("ganar");
+            apuestaService.addApuesta(listaApuestas, ContadorID, ganar, request);
             getServletContext().setAttribute("ContadorID", ContadorID + 1);
             // redirigimos al jsp
             request.setAttribute("apuestas", listaApuestas);
@@ -148,6 +151,11 @@ public class apuestaServlet extends HttpServlet {
              request.setAttribute("apuestas", listaFiltrada);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
-        }
-    }
+        }else if ("Guañadora".equals(accion)) {
+            List<Apuesta> listaApuestas = (List<Apuesta>) getServletContext().getAttribute("listaApuestas");
+            request.setAttribute("apuestas", listaApuestas);
+            apuestaService.ganar(listaApuestas,request);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
+    }}
 }

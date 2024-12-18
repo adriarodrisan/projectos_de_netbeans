@@ -18,14 +18,31 @@ public class Apuesta {
     String equipo;
     String resultat;
     int ID;
+    String liga;
+    boolean ganar;
 
-    public Apuesta(String nombre, int ID, String resultat, LocalDate fecha_partido, double apuesta, String equipo) {
+    public Apuesta(String nombre, int ID, String resultat, LocalDate fecha_partido, double apuesta, String equipo, String liga,boolean ganar) {
         this.nombre = nombre;
         this.fecha_partido = fecha_partido;
         this.apuesta = apuesta;
         this.equipo = equipo;
         this.resultat = resultat;
         this.ID = ID;
+        this.liga = liga;
+        this.ganar=  ganar;
+    }
+
+    public boolean isGanar() {
+        return ganar;
+    }
+    public void setGanar(boolean ganar) {
+        this.ganar = ganar;
+    }
+    public String getLiga() {
+        return liga;
+    }
+    public void setLiga(String liga) {
+        this.liga = liga;
     }
 
     public int getID() {

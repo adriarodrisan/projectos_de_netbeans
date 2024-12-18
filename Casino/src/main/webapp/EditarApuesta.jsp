@@ -40,7 +40,8 @@
 
             <label for="Resultat">Equipo:</label>
             <input type="text" id="Resultat" name="Resultat" value="<%= apuesta.getResultat() %>" required/><br/>
-
+             <label for="Resultat">Liga:</label>
+            <input type="text" id="Resultat" name="Resultat" value="<%= apuesta.getLiga() %>" required/><br/>
             <label for="fecha_partido">Fecha del Partido (dd-MM-yyyy):</label>
             <input type="text" id="fecha_partido" name="fecha_partido" 
                    value="<%= apuesta.getFecha_partido() != null ? apuesta.getFecha_partido().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) : "" %>" required/><br/>
@@ -48,7 +49,7 @@
             <label for="apuesta">Apuesta Económica (€):</label>
             <input type="number" step="0.01" id="apuesta" name="apuesta" 
                    value="<%= apuesta.getApuesta() %>" required/><br/>
-
+            <button type="submit" name="submit" value="Guañadora">Ganar</button>
              <button type="submit" name="submit" value="Modificar">Guardar Cambios</button>
         </form>
 
