@@ -6,6 +6,8 @@ import com.mvm.daw.casino.model.Apuesta;
 import com.mvm.daw.casino.model.ApuestaService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -157,5 +159,21 @@ public class apuestaServlet extends HttpServlet {
             apuestaService.ganar(listaApuestas,request);
             RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
             dispatcher.forward(request, response);
-    }}
-}
+    }else if ("FiltraPorPartidoifecha".equals(accion)) {
+            List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
+            List<Apuesta> listaFiltrada = new ArrayList<>();
+            listaFiltrada = apuestaService.filtrarPorPartidoyFecha(listaApuestas,request);
+             request.setAttribute("apuestas", listaFiltrada);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
+}else if ("FiltraPorUsuarioirango".equals(accion)) {
+            String nombreFiltro = request.getParameter("nombre");
+            double valor_minimo = Double.parseDouble(request.getParameter("valor_minimo"));
+            double valor_maximo = Double.parseDouble(request.getParameter("valor_maximo"));
+            List<Apuesta> listaApuestas = (ArrayList<Apuesta>) getServletContext().getAttribute("listaApuestas");
+            List<Apuesta> listaFiltrada = new ArrayList<>();
+            listaFiltrada = apuestaService.filtrarPorUsuarioirango(listaApuestas, nombreFiltro,valor_minimo,valor_maximo);
+             request.setAttribute("apuestas", listaFiltrada);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("resultat.jsp");
+            dispatcher.forward(request, response);
+}}}

@@ -46,6 +46,17 @@
             <input type="submit" name="submit" value="FiltraPorUsuario"/>
         </form>
         <form action="apuestaServlet" method="POST">
+            <input type="text" name="Partido"/>
+            <input type="date" name="fecha"/>
+            <input type="submit" name="submit" value="FiltraPorPartidoifecha"/>
+        </form>
+        <form action="apuestaServlet" method="POST">
+            <input type="text" name="nombre"/>
+            <input type="text" name="valor_minimo"/>
+            <input type="text" name="valor_maximo"/>
+            <input type="submit" name="submit" value="FiltraPorUsuarioirango"/>
+        </form>
+        <form action="apuestaServlet" method="POST">
             <input type="submit" name="submit" value="Volver"/>
         </form>
     </body>

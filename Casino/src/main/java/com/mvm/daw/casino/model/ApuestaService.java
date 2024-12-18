@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mvm.daw.casino.model;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author isard
  */
 public class ApuestaService {
+
     public ApuestaService() {
     }
+
     public void addApuesta(List<Apuesta> listaApuestas, int ContadorID, boolean ganar, HttpServletRequest request) {
         // recuperar los datos del formulario
         String nombre = request.getParameter("nombre");
@@ -27,10 +31,11 @@ public class ApuestaService {
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fecha_partido = LocalDate.parse(fecha_partido_String, formater);
         //String apuestas = "Apuesta: " + nombre + ", ID: " + id + ", Cargo: " + carrec;
-        Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta, resultat,liga, ganar);
+        Apuesta apuestas = new Apuesta(nombre, ID, equipo, fecha_partido, apuesta, resultat, liga, ganar);
         // añadir los datos del usuario (del formulario) en la lista
         listaApuestas.add(apuestas);
     }
+
     public void Borrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
@@ -40,7 +45,8 @@ public class ApuestaService {
             }
         }
     }
-       public void Mostrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
+
+    public void Mostrar(List<Apuesta> listaApuestas, HttpServletRequest request) {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
             if (apuesta.getID() == ID) {
@@ -49,6 +55,7 @@ public class ApuestaService {
             }
         }
     }
+
     public void Modificar(List<Apuesta> listaApuestas, HttpServletRequest request) {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
@@ -70,7 +77,9 @@ public class ApuestaService {
                 break;
             }
         }
-} public List<Apuesta> filtrarPorUsuario(List<Apuesta> listaApuestas, String nombreFiltro) {
+    }
+
+    public List<Apuesta> filtrarPorUsuario(List<Apuesta> listaApuestas, String nombreFiltro) {
         List<Apuesta> listaFiltrada = new ArrayList<>();
         for (Apuesta apuesta : listaApuestas) {
             if (apuesta.getNombre() != null && apuesta.getNombre().equalsIgnoreCase(nombreFiltro)) {
@@ -78,7 +87,9 @@ public class ApuestaService {
             }
         }
         return listaFiltrada;
-    }public void ganar(List<Apuesta> listaApuestas, HttpServletRequest request){
+    }
+
+    public void ganar(List<Apuesta> listaApuestas, HttpServletRequest request) {
         int ID = Integer.parseInt(request.getParameter("ID"));
         for (Apuesta apuesta : listaApuestas) {
             if (apuesta.getID() == ID) {
@@ -86,6 +97,26 @@ public class ApuestaService {
                 apuesta.ganar = ganar;
                 break;
             }
-}}
-      
-}
+        }
+    }
+
+    public List<Apuesta> filtrarPorPartidoyFecha(List<Apuesta> listaApuestas, HttpServletRequest request) {
+        List<Apuesta> listaFiltrada = new ArrayList<>();
+        String PartidoFiltro = request.getParameter("Partido");
+        for (Apuesta apuesta : listaApuestas) {
+            if (apuesta.getResultat() != null && apuesta.getResultat().equalsIgnoreCase(PartidoFiltro)) {
+                listaFiltrada.add(apuesta);
+            }
+        }
+        return listaFiltrada;
+    }
+
+    public List<Apuesta> filtrarPorUsuarioirango(List<Apuesta> listaApuestas, String nombreFiltro, double valor_minimo, double valor_maximo) {
+        List<Apuesta> listaFiltrada = new ArrayList<>();
+        for (Apuesta apuesta : listaApuestas) {
+            /*if (apuesta.getNombre() != null && apuesta.getNombre().equalsIgnoreCase(nombreFiltro)&& apuesta.getEquipo()>=valor_minimo&&apuesta.getEquipo()<=valor_maximo){
+                listaFiltrada.add(apuesta);
+            }
+        */}
+        return listaFiltrada;
+    }}
